@@ -1,0 +1,12 @@
+name: archer_preview
+title: Archer_Preview
+username:
+account: barajaspatrick
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 231264
+bundleId: 1055643
+url: https://barajaspatrick.shinyapps.io/archer_preview/
+when: 1509588068.50067
+asMultiple: FALSE
+asStatic: FALSE
