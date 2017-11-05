@@ -40,7 +40,10 @@ shinyUI(fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
        plotOutput("scoreplot"),
-       tableOutput("dataframe1")
+       tableOutput("dataframe1"),
+       br(),
+       p("Progress_per_week is based off of a linear model between the number 
+         of scoring sessions completed and the total_scores out of 300 for each of the sessions.")
     )
   )
 ))
