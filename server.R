@@ -17,7 +17,7 @@ shinyServer(function(input, output){
         ## and adding a index column for later use
         Archer_scores <- reactive({
                 scores$`Date (MM/DD/YY)` <- as.Date(scores$`Date (MM/DD/YY)`, format='%m/%d/%y') ## DATE
-                scores <- filter(scores, `ARCHER (FIRSTNAME_LASTNAME)` == input$archer_name) ## ARCHER_ID  
+                scores <- filter(scores, `ARCHER (FIRSTNAME_LASTNAME)` == input$archer_name) ## ARCHER_ID
                 scores$arch_index <- as.numeric(array(1:length(scores$`END SCORE`)))
                 scores
         })
@@ -27,10 +27,10 @@ shinyServer(function(input, output){
                 name <- input$archer_name
                 ggplot(Archer_scores(), aes(`Date (MM/DD/YY)`,`END SCORE`)) +   ## DATE, END_SCORE
                         ## stat_smooth(method = 'loess', color = "coral", size = 1.5) +
-                        stat_smooth(method = "lm", color = "royalblue1", size = 1.3, alpha = .1) +
+                        stat_smooth(method = "lm", color = "royalblue1", size = 1.3) +
                         geom_point(shape = 16, size = 4, color = "coral") +
                         geom_text(label = Archer_scores()$`END SCORE`,  ## END_SCORE
-                                  vjust = -1, nudge_y = 5, size = 4) +          
+                                  vjust = -1, nudge_y = 5, size = 4) +
                         labs(title =  name, x = "Date", y = "Score") +
                         theme_minimal() +
                         theme(plot.title = element_text(color="black", face="bold", size=24, hjust=0)) +
